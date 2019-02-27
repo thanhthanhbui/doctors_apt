@@ -1,0 +1,13 @@
+<h1>Appointments</h1>
+<%= link_to 'Add Appointment', new_doctor_apt_path(@doctor) %>
+<hr />
+<h2><%= @apts.length <= 0 ? "No Appointment" : "" %></h2>
+<ul>
+  <% @apts.each do |apt| %>
+    <li>
+      Dr. <%= @doctor.full_name %>: <%= apt.date %>
+      <br />
+      <%= link_to 'Remove', [@doctor, apt], method: :delete %>
+    </li>
+  <% end %>
+</ul>
